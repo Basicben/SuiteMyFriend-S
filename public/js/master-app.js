@@ -127,7 +127,6 @@ suiteApp.controller('masterCntrl', function($scope,$http,$location,connectedUser
 
         setTimeout(function(){
             $('#splashscreen').fadeOut(500);    
-            $('#view').fadeIn(500);   
         },900);
 
     });
