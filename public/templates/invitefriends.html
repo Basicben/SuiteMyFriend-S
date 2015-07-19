@@ -1,0 +1,54 @@
+
+<div class="withme-wrapper">
+	<div class="withmerepeater">
+		<div>
+			<input class="h55blue height55 size18" placeholder="search" type="text" ng-model="searchFriend" >
+			<div class="searchbtn"> </div>
+		</div>
+		<div class="darkblue paddtb15">
+			<span class="gold uppercase marginleft25 size20">person Categories</span>
+			<section id="category-wrapper" class="center">
+		        <div ng-repeat="category in categoryList" class="inline-block">
+		            <div ng-click="addRemoveCategory(category,$index)" ng-class="{yellowCover : category.IsSelected == true}" class="category" ng-style="{ 'background-image': 'url(' + category.Picture + ')' }">  </div>
+
+		        </div>
+		    </section>
+		</div>
+		<div class="scroll maxheight245 overflowx-hidden">
+			<div class="paddbor" ng-repeat="friend in friendList | filter:searchFriend | orderBy:[nullsCategoriesToBottom] | sortByCategory:selectedCategoryList" ng-init="friend.IsSelected = false" ng-click="selectFriend(friend);"  ng-class="{darkviolet: friend.IsSelected == true}">
+				<div class="inline-block imgprof" ng-style="{'background-image':'url({{friend.profilePicture}})'}">
+							
+				</div>
+				<div class="inline-block">
+					<span class="titledisplay inline-block gold uppercase" ng-if="friend.name"> {{friend.name}} </span>
+				</div>
+			</div>
+		</div>
+		
+		<div class="h55blue h54 rglbtn uppercase" ng-click="chooseWithMe()"> <span> Choose </span>  </div>
+	</div>
+</div>
+
+<div class="invite-wrapper">
+
+	<div class="invite-header header">
+		<span> Invite friends </span>
+	</div>
+	
+	<div class="invite-body">
+		<div>
+			<input class="h55blue height55 size18" id="WhereInput" type="text" ng-autocomplete ng-model="autoCompleteTemplate" options="autoComplete.options" details="autoComplete.details" ng-cloak placeholder="Bar name" />	
+		</div>
+		<div class="map-size">
+			<div class="sendinvitation pointer" ng-click="sendInvitation()"> <span class="sendicon">  </span> </div>	
+			<leaflet class="map-size" markers="markers" center="center"></leaflet>	
+		</div>
+	</div>
+
+	<div class="invite-footer">
+		<div class="h55blue withme" ng-click="addRemoveWithMe()"> <span class="left25"> + with me now </span> </div>
+	</div>
+	
+</div>
+
+

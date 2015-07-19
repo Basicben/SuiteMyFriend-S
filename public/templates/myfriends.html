@@ -1,0 +1,56 @@
+<style>
+
+    span{
+        color: #fff7d4 !important;
+    }
+
+</style>
+
+<!--  Presenting all user friends with their categories  -->
+<div class="myfriends-wrapper">
+    <!--  Presenting all categories  -->
+    <div class="myfriends-header header">
+        <input class="h55blue size18 center noborder additional lato" id="uniqesearch" placeholder="Filtered" type="text" ng-model="searchFriend" >
+        <div class="searchbtn"> </div>
+    </div>
+
+    <!--  Presenting all user's friends, sorted by categories  -->
+    <div class="myfriends-body">
+        <div class="relative darkblue paddtb15">
+            <span class="gold uppercase marginleft25 size20">person Categories</span>
+            <section id="category-wrapper" class="center">
+                <div ng-repeat="category in categoryList" class="inline-block" ng-click="addRemoveCategory(category,$index)">
+                    <div ng-class="{yellowCover : category.IsSelected == true}" class="category" ng-style="{ 'background-image': 'url(' + category.Picture + ')' }">  </div>
+
+                </div>
+            </section>
+        </div>
+        <div id="friends_repeater" class="scroll maxheight305 overflowx-hidden">
+            <div class="paddbor height70 relative" ng-repeat="friend in friendList | filter:searchFriend | orderBy:[nullsCategoriesToBottom] | sortByCategory:selectedCategoryList" ng-init="friend.IsSelected = false" ng-click="selectFriend(friend,$index,$event);">
+                <div class="friend-details-wrapper">
+
+                    <div class="inline-block imgprof" ng-style="{'background-image':'url({{friend.profilePicture}})'}">
+                        
+                    </div>
+                    <div class="inline-block">
+                        <span class="titledisplay inline-block uppercase" ng-if="friend.name"> {{friend.name}} </span>
+                    </div>
+
+                </div>
+
+                <div class="inline-block friend-select height76">
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+    <div class="myfriends-footer">
+        <div class="footer-navbar">
+
+        </div>
+        <div class="clear"> </div>
+    </div>
+
+</div>

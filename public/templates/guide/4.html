@@ -1,0 +1,63 @@
+<style type="text/css">
+
+	#guide4 h1{
+		text-align: center;
+		margin:0 auto;
+	}
+
+	.template-body > .suite-guide{
+		background-image: url('../images/suiteguide.png');
+		width:236px;
+		height: 235px;
+	}
+
+	.border1bright{
+		border-right:1px solid black;
+	}
+
+	.gotit-wrapper {
+	  width: 160px;
+	  border-bottom: 1px solid;
+	  border-top: 1px solid;
+	  padding: 6px;
+	}
+
+	.gotit-wrapper:hover > span{
+		color:white;
+	}
+
+</style>
+
+<div id="guide4">
+
+	<div class="template-header margbottom10 margtop10">
+		<h1 class="block size40"> Unfiltered </h1>
+	</div>
+	
+	<div class="template-body margbottom10">
+		<div class="suite-guide center"> </div>
+	</div>
+	
+	<div class="template-footer">
+		<div class="block center margbottom10"> 
+			<span class="uppercase block"> You can press on multiple </span>
+			<span class="uppercase block"> categories for one person </span>
+		</div>
+		<div class="block center margbottom20"> 
+			<div class="inline-block paddright15 border1bright">
+				<span class="block size13"> swipe left to </span>
+				<span class="block bold textleft size13"> i dont know </span>
+			</div>
+			<div class="inline-block margleft10px">
+				<span class="block size13"> swipe right to </span>
+				<span class="block bold textleft size13"> finish </span>
+			</div>
+		</div>
+		<div class="block center margtop10" ng-click="startApp()">
+			<div class="gotit-wrapper center">
+				<span class="center"> GOT IT </span>
+			</div>
+		</div>
+	</div>
+
+</div>

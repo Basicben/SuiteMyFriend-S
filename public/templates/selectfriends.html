@@ -1,0 +1,57 @@
+<div class="select-wrapper">
+
+	<section class="select-header header">
+		<span> Select friends </span>
+	</section>
+	
+	<div class="select-body">
+		<!-- Get All Friends Circles -->
+		
+		<section class="circleswrapper darkblue relative paddtb15">
+			<span class="gold uppercase marginleft25 size20" ng-click="toggleCircle()">Facebook Circles</span>
+			<!-- Circles -->
+			<div id="circles-wrapper" class="circlesreapter overflow">
+				<div class="center uppercase" ng-repeat="circle in circleList" ng-click="selectCircle(circle);" ng-class="{selectedCircle: circle.IsSelected == true}">
+					<span> {{circle.value}} </span>
+					<div class="hline"></div>
+				</div>
+			</div>
+		</section>
+
+		<div class="relative darkblue paddtb15">
+			<span class="gold uppercase marginleft25 size20" ng-click="toggleCategory()">person Categories</span>
+			<section id="category-wrapper" class="center overflow">
+		        <div ng-repeat="category in categoryList" class="inline-block">
+		            <div ng-click="addRemoveCategory(category,$index)" ng-class="{yellowCover : category.IsSelected == true}" class="category" ng-style="{ 'background-image': 'url(' + category.Picture + ')' }">  </div>
+
+		        </div>
+		    </section>
+		</div>
+
+		<!-- Select all friends \ some of them -->
+		<section class="friendswrapper">
+			<div id="friends_repeater" class="scroll maxheight312 overflowx-hidden">
+				<div class="paddbor height70" ng-repeat="friend in friendList | sortByCircle:selectedCircle | sortByCategory:selectedCategoryList" ng-init="friend.IsSelected = false" ng-click="selectFriend(friend);"  ng-class="{darkviolet: friend.IsSelected == true}">
+					
+					<div class="friend-details-wrapper">
+
+						<div class="inline-block imgprof" ng-style="{'background-image':'url({{friend.profilePicture}})'}">
+						
+						</div>
+						<div class="inline-block">
+							<span class="titledisplay inline-block uppercase" ng-if="friend.name"> {{friend.name}} </span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+		<!-- Filter Friends By Categories -->
+	</div>
+
+	<div class="select-footer">
+		<div class="h55blue h54 rglbtn" ng-click="selectedFriends.length == friendList.length ? unsellectAll() : selectAll()"> <span> All </span>  </div>
+		<div class="h55blue h54 rglbtn" ng-click="sendAll(); alertIfFriendNotSelected()" ng-disabled="isAnyFriendSelected"> <span> Send </span>  </div>
+	</div>
+	
+</div>

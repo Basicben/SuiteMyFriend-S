@@ -1,0 +1,28 @@
+<style type="text/css">
+
+	span,a,p{
+		color:#fff7d3 !important;
+	}	
+
+</style>
+
+<div class="welcome-wrapper">
+
+	<div class="welcome-header">
+		<div class="header-logo"> </div>
+	</div>
+	
+	<div class="welcome-body">
+		<img ng-src="{{$parent.connectedUser.userObject.mediumProfilePicture}}">
+
+		<div class="welcometext">
+			<span> Hello {{ $parent.connectedUser.userObject.first_name }} </span>
+		</div>
+
+	</div>
+
+	<div class="welcome-footer">
+		<div class="connectbtn2 goldenbtn" ng-click="enterApp()"> <span> Enter </span> </div>
+	</div>
+	
+</div>

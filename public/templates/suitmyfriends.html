@@ -1,0 +1,35 @@
+<!--  Presenting all user friends with their categories  -->
+
+<div class="suitmyfriends-wrapper" id="friendPictureSection">
+    <div class="suitmyfriends-header header">
+        <span>Suit My Friends</span>
+    </div>
+    <!--  Presenting all user's friends, sorted by categories  -->
+    <div class="suitmyfriends-body relative">
+        <div>
+            <div class="suite relative center">
+                <div class="categories-section">
+                    <div ng-repeat="category in categoryList" ng-click="selectCategory(category,$event)" class="float-categories {{category.Title}}" >
+                        <img ng-src="{{category.Picture}}"> 
+                        <div class="selectedImg c{{$index+1}}" ng-style="{'background-image': 'url({{category.SelectedPic}})' }" ng-if="category.IsSelected"> </div>
+                    </div>      
+                </div>
+                <div class="no-friends" ng-if="friendList[friendIndex] == null">
+                    <span class="block size40 bold uppercase"> Sorry </span>
+                    <span class="block size15 uppercase"> We ran out of friends </span>
+                </div>
+                
+                <img ng-if="friendList[friendIndex] != null" ng-src="{{friendList[friendIndex].bigProfilePicture}}">
+                <span id="curvedName1" class="name-wrapper center absolute size20 uppercase" ng-if="friendList[friendIndex] != null && categoriazedFriend.Categories != null && categoriazedFriend.Categories.length == 0"> {{friendList[friendIndex].name}} </span>
+                <span id="curvedName2" class="name-wrapper center absolute size20 uppercase" ng-if="categoriazedFriend.Categories.length > 0"> {{lastCateogryName}} </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="myfriends-footer">
+        <div class="footer-navbar">
+        </div>
+        <div class="clear"> </div>
+    </div>
+
+</div>
